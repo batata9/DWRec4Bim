@@ -96,7 +96,7 @@ public class Cor implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Cor[ idCor=" + idCor + " ]";
+        return idCor + "- " + nome;
     }
     
 }

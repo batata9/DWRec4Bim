@@ -49,7 +49,7 @@ public class Veiculo implements Serializable {
     @JoinColumn(name = "modelo_id_modelo", referencedColumnName = "id_modelo")
     @ManyToOne(optional = false)
     private Modelo modeloIdModelo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "veiculo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "veiculoIdVeiculo")
     private List<AluguelHasVeiculo> aluguelHasVeiculoList;
 
     public Veiculo() {
@@ -143,7 +143,7 @@ public class Veiculo implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Veiculo[ idVeiculo=" + idVeiculo + " ]";
+        return idVeiculo + "";
     }
     
 }

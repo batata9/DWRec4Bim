@@ -14,6 +14,7 @@
                     <a href="cadastroVeiculo.jsp">Cadastro dos Veiculos | </a>
                     <a href="cadastroCliente.jsp">Cadastro dos Clientes | </a>
                     <a href="cadastroAluguel.jsp">Cadastro dos Alugueis | </a>
+                    <a href="cadastroAluguel.jsp">Cadastro do ALuguel <--> Veiculo | </a>
   
                     <a href="cor.jsp">Lista das Cores | </a>
                     <a href="marca.jsp">Lista das Marcas  | </a>
@@ -21,6 +22,7 @@
                     <a href="veiculo.jsp">Lista dos Veiculos  | </a>
                     <a href="cliente.jsp">Lista dos clientes  | </a>
                     <a href="aluguel.jsp">Lista dos alugueis  | </a>
+                    <a href="aluguel.jsp">Lista do Aluguel <--> Veiculo  | </a>
                    
                     </div></div>
             <div>

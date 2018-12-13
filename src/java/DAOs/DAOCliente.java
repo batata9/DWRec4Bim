@@ -27,7 +27,7 @@ public class DAOCliente extends DAOGenerico<Cliente> {
     }
 
     public List<Cliente> listById(int id) {
-        return em.createQuery("SELECT e FROM Cliente e WHERE e.login = :id").setParameter("id", id).getResultList();
+        return em.createQuery("SELECT e FROM Cliente e WHERE e.idCliente = :id").setParameter("id", id).getResultList();
     }
 
     public List<Cliente> listInOrderNome() {
@@ -35,7 +35,7 @@ public class DAOCliente extends DAOGenerico<Cliente> {
     }
 
     public List<Cliente> listInOrderId() {
-        return em.createQuery("SELECT e FROM Cliente e ORDER BY e.login").getResultList();
+        return em.createQuery("SELECT e FROM Cliente e ORDER BY e.idCliente").getResultList();
     }
 
     public List<String> listInOrderNomeStrings(String qualOrdem) {
@@ -56,6 +56,6 @@ public static void main(String[] args) {
         DAOCliente daoCliente = new DAOCliente();
         List<Cliente> listaCliente = daoCliente.list();
         for (Cliente cliente : listaCliente) {
-            System.out.println(cliente.getLogin() + "-" + cliente.getNome());
+            System.out.println(cliente.getIdCliente()+ "-" + cliente.getNome());
         }
     }}

@@ -1,4 +1,4 @@
-%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <jsp:useBean id="dao" class="DAOs.DAOAluguel"/>
 <!DOCTYPE html>
@@ -56,12 +56,15 @@
                     <a href="cadastroVeiculo.jsp">Cadastro dos Veiculos | </a>
                     <a href="cadastroCliente.jsp">Cadastro dos Clientes | </a>
                     <a href="cadastroAluguel.jsp">Cadastro dos Alugueis | </a>
+                    <a href="cadastroAluguelHasVeiculo.jsp">Cadastro Aluguel <--> Veiculo | </a>
   
                     <a href="cor.jsp">Lista das Cores | </a>
                     <a href="marca.jsp">Lista das Marcas  | </a>
                     <a href="modelo.jsp">Lista dos Modelos   | </a>
                     <a href="veiculo.jsp">Lista dos Veiculos | </a>
-                    <a href="cliente.jsp">Lista dos clientes  | </a>
+                    <a href="cliente.jsp">Lista dos Clientes  | </a>
+                    <a href="aluguel.jsp">Lista dos Alugueis  | </a>
+                    <a href="aluguelHasVeiculo.jsp">Lista do Aluguel <--> Veiculo  | </a>
                 </div></div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -70,8 +73,10 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do produto" style="width: 170px;">Nome</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Pre�o do produto" style="width: 206px;">Id</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do produto" style="width: 170px;">Id</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Data</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Observações</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Cliente </th>
 
                                         </tr>
                                     </thead>

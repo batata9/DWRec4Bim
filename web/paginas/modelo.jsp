@@ -14,7 +14,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" type="image/png" href="fenix.png"/>
-        <title>Lista de produtos</title>
+        <title>Lista de modelos</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Produtos Cadastrados
+                    Modelos Cadastrados
                 </div>
                 <a href="cadastroMarca.jsp">Cadastro das Marcas | </a>
                     <a href="cadastroModelo.jsp">Cadastro dos Modelos | </a>
@@ -56,12 +56,14 @@
                     <a href="cadastroVeiculo.jsp">Cadastro dos Veiculos | </a>
                     <a href="cadastroCliente.jsp">Cadastro dos Clientes | </a>
                     <a href="cadastroAluguel.jsp">Cadastro dos Alugueis | </a>
+                    <a href="cadastroAluguelHasVeiculo.jsp">Cadastro do Aluguel <--> Veiculo| </a>
   
                     <a href="cor.jsp">Lista das Cores | </a>
                     <a href="marca.jsp">Lista das Marcas  | </a>
                     <a href="veiculo.jsp">Lista dos Veiculos | </a>
                     <a href="cliente.jsp">Lista dos clientes  | </a>
                     <a href="aluguel.jsp">Lista dos alugueis  | </a>
+                    <a href="aluguelHasVeiculo.jsp">Lista Aluguel <--> Veiculo  | </a>
                 </div></div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">

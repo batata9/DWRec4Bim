@@ -106,7 +106,7 @@ public class Modelo implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Modelo[ idModelo=" + idModelo + " ]";
+        return idModelo + "- " + nomeModelo;
     }
     
 }

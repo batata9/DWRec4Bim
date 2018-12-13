@@ -7,6 +7,7 @@ package Controles;
 
 import DAOs.DAOCliente;
 import Entidades.Cliente;
+import static Entidades.Cliente_.idCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -33,7 +34,6 @@ public class ClienteServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String nome = "";
-        int idCliente = 0;
         String login = "";
         String senha = "";
         String endereco = "";
@@ -46,6 +46,8 @@ public class ClienteServlet extends HttpServlet {
         DAOCliente daoCliente = new DAOCliente();
         Cliente produto = new Cliente();
         try (PrintWriter out = response.getWriter()) {
+            
+            produto.setIdCliente(daoCliente.autoIdCliente());
             
             nome = request.getParameter("nome");
             produto.setNome(nome);
@@ -95,6 +97,7 @@ public class ClienteServlet extends HttpServlet {
         for (Cliente t : lista) {
             tabela += "<tr>"
                     + "<td> " + t.getNome()+ "</td>"
+                    + "<td> " + t.getIdCliente()+ "</td>"
                     + "<td> " + t.getLogin()+ "</td>"
                     + "<td> " + t.getSenha()+ "</td>"
                     + "<td> " + t.getEndereco()+ "</td>"
@@ -114,7 +117,8 @@ public class ClienteServlet extends HttpServlet {
         List<Cliente> lista = daoCliente.list();
         for (Cliente t : lista) {
             tabela += "<tr>"
-                     + "<td> " + t.getNome()+ "</td>"
+                    + "<td> " + t.getNome()+ "</td>"
+                    + "<td> " + t.getIdCliente()+ "</td>"
                     + "<td> " + t.getLogin()+ "</td>"
                     + "<td> " + t.getSenha()+ "</td>"
                     + "<td> " + t.getEndereco()+ "</td>"

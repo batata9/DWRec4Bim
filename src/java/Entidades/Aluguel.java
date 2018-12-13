@@ -41,7 +41,7 @@ public class Aluguel implements Serializable {
     @JoinColumn(name = "cliente_id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne(optional = false)
     private Cliente clienteIdCliente;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluguel")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluguelIdAluguel")
     private List<AluguelHasVeiculo> aluguelHasVeiculoList;
 
     public Aluguel() {
@@ -113,7 +113,7 @@ public class Aluguel implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Aluguel[ idAluguel=" + idAluguel + " ]";
+        return idAluguel + "";
     }
     
 }

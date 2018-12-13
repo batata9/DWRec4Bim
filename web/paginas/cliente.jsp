@@ -57,12 +57,14 @@
                     <a href="cadastroVeiculo.jsp">Cadastro dos Veiculos | </a>
                     <a href="cadastroCliente.jsp">Cadastro dos Clientes | </a>
                     <a href="cadastroAluguel.jsp">Cadastro dos Aluguel | </a>
+                    <a href="cadastroAluguelHasVeiculo.jsp">Cadastro do Aluguel <--> Veiculo | </a>
   
                     <a href="cor.jsp">Lista das Cores | </a>
                     <a href="marca.jsp">Lista das Marcas  | </a>
                     <a href="modelo.jsp">Lista dos Modelos   | </a>
                     <a href="veiculo.jsp">Lista dos Veiculos | </a>
                     <a href="aluguel.jsp">Lista dos Alugueis | </a>
+                    <a href="aluguelHasVeiculo.jsp">Lista Aluguel <--> Veiculo | </a>
                 </div></div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -71,14 +73,23 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do produto" style="width: 170px;">Nome</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Id</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do produto" style="width: 170px;">Id</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Nome</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Login</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Senha</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Endereço</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Bairro</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Cidade</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Cep</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Telefone</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Celular</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="cliente" items="${dao.listInOrderNome()}">
+                                        <c:forEach var="cliente" items="${dao.listInOrderId()}">
                                             <tr>
+                                                <td>${cliente.getIdCliente()}</td>
                                                 <td>${cliente.getNome()}</td>
                                                 <td>${cliente.getLogin()}</td>
                                                 <td>${cliente.getSenha()}</td>

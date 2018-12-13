@@ -1,20 +1,10 @@
-<%-- 
-    Scriplet
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.*,
-        DAOs.DAOMarca,
-        Entidades.Marca,
-        java.text.NumberFormat" %>
-<%
-    Locale ptBr = new Locale("pt", "BR");
-    NumberFormat formatoDinheiro = NumberFormat.getCurrencyInstance(ptBr);
-    DAOMarca dao = new DAOMarca();
-    List<Marca> marcas = dao.listInOrderNome();
-%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<jsp:useBean id="dao" class="DAOs.DAOAluguelHasVeiculo"/>
 <!DOCTYPE html>
 <html lang="en">
+
 
     <head>
 
@@ -24,7 +14,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" type="image/png" href="fenix.png"/>
-        <title>Lista de produtos</title>
+        <title>Lista de Alugueis cadastrados aos Veiculos</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,22 +48,24 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Produtos Cadastrados
+                    Aluguel <--> Veiculos Cadastrados
                 </div>
-                <a href="cadastroMarca.jsp">Cadastro das Marcas | </a>
+              
+                    <a href="cadastroMarca.jsp">Cadastro das Marcas | </a>
                     <a href="cadastroModelo.jsp">Cadastro dos Modelos | </a>
                     <a href="cadastroCor.jsp">Cadastro das Cores | </a>
                     <a href="cadastroVeiculo.jsp">Cadastro dos Veiculos | </a>
                     <a href="cadastroCliente.jsp">Cadastro dos Clientes | </a>
                     <a href="cadastroAluguel.jsp">Cadastro dos Alugueis | </a>
-                    <a href="cadastroAluguelHasVeiculo.jsp">Cadastro do Aluguel <--> Veiculo | </a>
+                    <a href="cadastroAluguelHasVeiculo.jsp">Cadastro Aluguel <--> Veiculo | </a>
   
                     <a href="cor.jsp">Lista das Cores | </a>
+                    <a href="marca.jsp">Lista das Marcas  | </a>
                     <a href="modelo.jsp">Lista dos Modelos   | </a>
-                    <a href="veiculo.jsp">Lista dos Veiculos | </a>
-                    <a href="cliente.jsp">Lista dos Clientes  | </a>
-                    <a href="aluguel.jsp">Lista dos Alugueis  | </a>
-                    <a href="aluguelHasVeiculo.jsp">Lista Aluguel <--> Veiculo  | </a>
+                    <a href="cliente.jsp">Lista dos clientes  | </a>
+                    <a href="veiculo.jsp">Lista dos veiculos  | </a>
+                    <a href="aluguel.jsp">Lista dos alugueis  | </a>
+                    <a href="aluguelHasVeiculo.jsp">Lista do Aluguel <--> Veiculo  | </a>
                 </div></div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -82,24 +74,33 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Id</th>
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do produto" style="width: 170px;">Nome</th>
-
+                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nome do produto" style="width: 170px;">Id</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Data</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Id Aluguel</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Id Veiculo</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Dias de aluguel</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Valor diário</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Hora de Início</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Preço do produto" style="width: 206px;">Hora de término</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%
-                                            for (Marca m : marcas) {
-                                        %>
-                                        <tr>
-                                            <td><%=m.getIdMarca()%></td>
-                                            <td><%=m.getNome()%></td>
-                                        </tr>
-                                        <%}%>
+                                        <c:forEach var="aluguelHasVeiculo" items="${dao.listInOrderId()}">
+                                            <tr>
+                                                <td>${aluguelHasVeiculo.getIdAluguelHasVeiculo()}</td>
+                                                <td>${aluguelHasVeiculo.getData()}</td>
+                                                <td>${aluguelHasVeiculo.getAluguelIdAluguel()}</td>
+                                                <td>${aluguelHasVeiculo.getVeiculoIdVeiculo()}</td>
+                                                <td>${aluguelHasVeiculo.getQuantidadeDias()}</td>
+                                                <td>${aluguelHasVeiculo.getValorDia()}</td>
+                                                <td>${aluguelHasVeiculo.getHoraInicio()}</td>
+                                                <td>${aluguelHasVeiculo.getHoraFim()}</td>                                      
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table></div></div>
-                        <!-- scriplet -->
+                        <!-- jstl -->
                     </div>
                     <!-- /.panel-body -->
                 </div>

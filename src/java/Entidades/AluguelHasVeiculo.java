@@ -6,18 +6,15 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -30,55 +27,50 @@ import javax.persistence.TemporalType;
 public class AluguelHasVeiculo implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected AluguelHasVeiculoPK aluguelHasVeiculoPK;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "id_aluguel_has_veiculo")
+    private Integer idAluguelHasVeiculo;
     @Basic(optional = false)
     @Column(name = "quantidade_dias")
     private int quantidadeDias;
     @Basic(optional = false)
     @Column(name = "valor_dia")
-    private double valorDia;
+    private String valorDia;
     @Basic(optional = false)
     @Column(name = "data")
-    @Temporal(TemporalType.DATE)
-    private Date data;
+    private String data;
     @Column(name = "hora_inicio")
-    @Temporal(TemporalType.TIME)
-    private Date horaInicio;
+    private String horaInicio;
     @Column(name = "hora_fim")
-    @Temporal(TemporalType.TIME)
-    private Date horaFim;
-    @JoinColumn(name = "veiculo_id_veiculo", referencedColumnName = "id_veiculo", insertable = false, updatable = false)
+    private String horaFim;
+    @JoinColumn(name = "aluguel_id_aluguel", referencedColumnName = "id_aluguel")
     @ManyToOne(optional = false)
-    private Veiculo veiculo;
-    @JoinColumn(name = "id_aluguel", referencedColumnName = "id_aluguel", insertable = false, updatable = false)
+    private Aluguel aluguelIdAluguel;
+    @JoinColumn(name = "veiculo_id_veiculo", referencedColumnName = "id_veiculo")
     @ManyToOne(optional = false)
-    private Aluguel aluguel;
+    private Veiculo veiculoIdVeiculo;
 
     public AluguelHasVeiculo() {
     }
 
-    public AluguelHasVeiculo(AluguelHasVeiculoPK aluguelHasVeiculoPK) {
-        this.aluguelHasVeiculoPK = aluguelHasVeiculoPK;
+    public AluguelHasVeiculo(Integer idAluguelHasVeiculo) {
+        this.idAluguelHasVeiculo = idAluguelHasVeiculo;
     }
 
-    public AluguelHasVeiculo(AluguelHasVeiculoPK aluguelHasVeiculoPK, int quantidadeDias, double valorDia, Date data) {
-        this.aluguelHasVeiculoPK = aluguelHasVeiculoPK;
+    public AluguelHasVeiculo(Integer idAluguelHasVeiculo, int quantidadeDias, String valorDia, String data) {
+        this.idAluguelHasVeiculo = idAluguelHasVeiculo;
         this.quantidadeDias = quantidadeDias;
         this.valorDia = valorDia;
         this.data = data;
     }
 
-    public AluguelHasVeiculo(int idAluguel, int veiculoIdVeiculo) {
-        this.aluguelHasVeiculoPK = new AluguelHasVeiculoPK(idAluguel, veiculoIdVeiculo);
+    public Integer getIdAluguelHasVeiculo() {
+        return idAluguelHasVeiculo;
     }
 
-    public AluguelHasVeiculoPK getAluguelHasVeiculoPK() {
-        return aluguelHasVeiculoPK;
-    }
-
-    public void setAluguelHasVeiculoPK(AluguelHasVeiculoPK aluguelHasVeiculoPK) {
-        this.aluguelHasVeiculoPK = aluguelHasVeiculoPK;
+    public void setIdAluguelHasVeiculo(Integer idAluguelHasVeiculo) {
+        this.idAluguelHasVeiculo = idAluguelHasVeiculo;
     }
 
     public int getQuantidadeDias() {
@@ -89,58 +81,58 @@ public class AluguelHasVeiculo implements Serializable {
         this.quantidadeDias = quantidadeDias;
     }
 
-    public double getValorDia() {
+    public String getValorDia() {
         return valorDia;
     }
 
-    public void setValorDia(double valorDia) {
+    public void setValorDia(String valorDia) {
         this.valorDia = valorDia;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Date getHoraInicio() {
+    public String getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(Date horaInicio) {
+    public void setHoraInicio(String horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public Date getHoraFim() {
+    public String getHoraFim() {
         return horaFim;
     }
 
-    public void setHoraFim(Date horaFim) {
+    public void setHoraFim(String horaFim) {
         this.horaFim = horaFim;
     }
 
-    public Veiculo getVeiculo() {
-        return veiculo;
+    public Aluguel getAluguelIdAluguel() {
+        return aluguelIdAluguel;
     }
 
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
+    public void setAluguelIdAluguel(Aluguel aluguelIdAluguel) {
+        this.aluguelIdAluguel = aluguelIdAluguel;
     }
 
-    public Aluguel getAluguel() {
-        return aluguel;
+    public Veiculo getVeiculoIdVeiculo() {
+        return veiculoIdVeiculo;
     }
 
-    public void setAluguel(Aluguel aluguel) {
-        this.aluguel = aluguel;
+    public void setVeiculoIdVeiculo(Veiculo veiculoIdVeiculo) {
+        this.veiculoIdVeiculo = veiculoIdVeiculo;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (aluguelHasVeiculoPK != null ? aluguelHasVeiculoPK.hashCode() : 0);
+        hash += (idAluguelHasVeiculo != null ? idAluguelHasVeiculo.hashCode() : 0);
         return hash;
     }
 
@@ -151,7 +143,7 @@ public class AluguelHasVeiculo implements Serializable {
             return false;
         }
         AluguelHasVeiculo other = (AluguelHasVeiculo) object;
-        if ((this.aluguelHasVeiculoPK == null && other.aluguelHasVeiculoPK != null) || (this.aluguelHasVeiculoPK != null && !this.aluguelHasVeiculoPK.equals(other.aluguelHasVeiculoPK))) {
+        if ((this.idAluguelHasVeiculo == null && other.idAluguelHasVeiculo != null) || (this.idAluguelHasVeiculo != null && !this.idAluguelHasVeiculo.equals(other.idAluguelHasVeiculo))) {
             return false;
         }
         return true;
@@ -159,7 +151,7 @@ public class AluguelHasVeiculo implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.AluguelHasVeiculo[ aluguelHasVeiculoPK=" + aluguelHasVeiculoPK + " ]";
+        return "Entidades.AluguelHasVeiculo[ idAluguelHasVeiculo=" + idAluguelHasVeiculo + " ]";
     }
     
 }

@@ -16,13 +16,15 @@
                     <a href="cadastroCor.jsp">Cadastro das Cores | </a>
                     <a href="cadastroCliente.jsp">Cadastro dos Clientes | </a>
                     <a href="cadastroAluguel.jsp">Cadastro dos Alugueis | </a>
+                    <a href="cadastroAluguelHasVeiculo.jsp">Cadastro do Aluguel <--> Veiculo | </a>
   
                     <a href="cor.jsp">Lista das Cores | </a>
                     <a href="marca.jsp">Lista das Marcas  | </a>
                     <a href="modelo.jsp">Lista dos Modelos   | </a>
                     <a href="veiculo.jsp">Lista dos Veiculos  | </a>
-                    <a href="cliente.jsp">Lista dos clientes  | </a>
-                    <a href="aluguel.jsp">Lista dos alugueis  | </a>
+                    <a href="cliente.jsp">Lista dos Clientes  | </a>
+                    <a href="aluguel.jsp">Lista dos Alugueis  | </a>
+                    <a href="aluguelHasVeiculo.jsp">Lista Aluguel <--> Veiculo | </a>
                     
                     </div></div>
             <div>
